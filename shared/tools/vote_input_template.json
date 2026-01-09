@@ -1,0 +1,132 @@
+{
+  "policy_id": "P001",
+  "policy_name": "Example Policy Name",
+  "description": "Brief description of the policy being voted on",
+  "votes": {
+    "PA-01": {
+      "vote": "for",
+      "reasoning": "This policy aligns with worker protections and economic justice.",
+      "confidence": "high"
+    },
+    "PA-02": {
+      "vote": "for",
+      "reasoning": "Strong progressive alignment with equity goals.",
+      "confidence": "high"
+    },
+    "PA-03": {
+      "vote": "for",
+      "reasoning": "Balanced approach that achieves center-left objectives.",
+      "confidence": "medium"
+    },
+    "PA-04": {
+      "vote": "abstain",
+      "reasoning": "Need more data on implementation feasibility.",
+      "confidence": "low"
+    },
+    "PA-05": {
+      "vote": "against",
+      "reasoning": "Concerns about market distortions and regulatory burden.",
+      "confidence": "medium"
+    },
+    "PA-06": {
+      "vote": "against",
+      "reasoning": "Government overreach that stifles economic growth.",
+      "confidence": "high"
+    },
+    "PA-07": {
+      "vote": "against",
+      "reasoning": "Prioritizes globalist agenda over American sovereignty.",
+      "confidence": "high"
+    },
+    "PA-08": {
+      "vote": "for",
+      "reasoning": "Creates clear standards that benefit responsible industry actors.",
+      "confidence": "medium"
+    },
+    "PA-09": {
+      "vote": "for",
+      "reasoning": "Critical safety provisions that mitigate existential risks.",
+      "confidence": "high"
+    },
+    "PA-10": {
+      "vote": "against",
+      "reasoning": "Slows innovation velocity and competitive positioning.",
+      "confidence": "high"
+    },
+    "PA-11": {
+      "vote": "abstain",
+      "reasoning": "Mixed market impacts require further analysis.",
+      "confidence": "medium"
+    },
+    "PA-12": {
+      "vote": "for",
+      "reasoning": "Strong civil rights protections for vulnerable populations.",
+      "confidence": "high"
+    },
+    "PA-13": {
+      "vote": "for",
+      "reasoning": "Protects workers from displacement and ensures fair transition.",
+      "confidence": "high"
+    },
+    "PA-14": {
+      "vote": "for",
+      "reasoning": "Consumer protections are robust and enforceable.",
+      "confidence": "medium"
+    },
+    "PA-15": {
+      "vote": "for",
+      "reasoning": "Environmental safeguards prevent long-term harm.",
+      "confidence": "high"
+    },
+    "PA-16": {
+      "vote": "against",
+      "reasoning": "Compliance costs are prohibitive for small businesses.",
+      "confidence": "medium"
+    },
+    "SA-01": {
+      "vote": "for",
+      "reasoning": "Legally sound and draftable as federal legislation.",
+      "confidence": "high"
+    },
+    "SA-02": {
+      "vote": "for",
+      "reasoning": "Constitutional and aligns with precedent.",
+      "confidence": "high"
+    },
+    "SA-03": {
+      "vote": "for",
+      "reasoning": "Likely to withstand Supreme Court review.",
+      "confidence": "medium"
+    },
+    "SA-04": {
+      "vote": "for",
+      "reasoning": "All claims verified with credible sources.",
+      "confidence": "high"
+    },
+    "SA-05": {
+      "vote": "for",
+      "reasoning": "Citations are accurate and comprehensive.",
+      "confidence": "high"
+    },
+    "SA-06": {
+      "vote": "for",
+      "reasoning": "Polling shows 65% public support across demographics.",
+      "confidence": "medium"
+    },
+    "SA-07": {
+      "vote": "abstain",
+      "reasoning": "Fiscal impact estimates require CBO scoring.",
+      "confidence": "low"
+    },
+    "SA-08": {
+      "vote": "for",
+      "reasoning": "Implementation plan is realistic and phased appropriately.",
+      "confidence": "medium"
+    }
+  },
+  "metadata": {
+    "vote_date": "2024-12-23",
+    "council_phase": "Phase 2",
+    "project": "economic-prosperity"
+  }
+}

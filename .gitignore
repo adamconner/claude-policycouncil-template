@@ -1,0 +1,47 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+.env
+venv/
+ENV/
+
+# Node
+node_modules/
+
+# Session logs (user-specific)
+SESSION_LOG_*.md
+
+# Agent memory (user-specific data)
+shared/memory/agents/*.json
+
+# Project outputs (keep structure, ignore generated content)
+# Uncomment these if you want to ignore all outputs:
+# projects/*/outputs/**/*.md
+# projects/*/outputs/**/*.json
+
+# API keys and secrets
+*.env
+.env.*
+secrets.yaml
+credentials.json
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Log files
+*.log

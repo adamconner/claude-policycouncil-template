@@ -1,0 +1,408 @@
+# Deep Research Configuration
+# Controls the Claude ↔ Gemini iterative research loop
+
+version: "2.0"
+
+# =============================================================================
+# RESEARCH MODE SELECTION (Asked at start)
+# =============================================================================
+research_modes:
+  claude_only:
+    name: "Claude Only"
+    description: "Fast research using Claude agents with web search"
+    estimated_time: "3-5 minutes"
+    cost: "No additional cost"
+    best_for: "Quick exploration, iterative research, tight deadlines"
+
+  hybrid:
+    name: "Hybrid"
+    description: "Claude quick scan, then Gemini Deep Research on key angles"
+    estimated_time: "10-15 minutes"
+    cost: "~$0.02"
+    best_for: "Balanced depth and speed, focused deep dives"
+
+  gemini_deep:
+    name: "Gemini Deep Research"
+    description: "Full Gemini Deep Research on all angles (100+ sources each)"
+    estimated_time: "15-25 minutes"
+    cost: "~$0.04"
+    best_for: "Comprehensive research, policy documents, market analysis"
+
+# =============================================================================
+# OUTPUT FORMAT PRESETS (Layer 1)
+# =============================================================================
+presets:
+  policy_brief:
+    name: "Policy Brief"
+    description: "Comprehensive policy research document"
+    default_format: "narrative"
+    default_length: "standard"
+    sections:
+      - executive_summary
+      - background_context
+      - key_findings
+      - data_statistics_table
+      - source_comparison
+      - policy_implications
+      - recommendations
+      - gaps_limitations
+      - source_bibliography
+    tables:
+      - name: "Key Statistics"
+        columns: ["Metric", "Value", "Source", "Date", "Confidence"]
+      - name: "Source Comparison"
+        columns: ["Source", "Type", "Recency", "Key Finding", "Reliability"]
+
+  market_analysis:
+    name: "Market Analysis"
+    description: "Industry and market research with comparisons"
+    default_format: "data_heavy"
+    default_length: "standard"
+    sections:
+      - executive_summary
+      - market_overview
+      - competitive_landscape
+      - trend_analysis
+      - key_players
+      - data_statistics_table
+      - opportunities_risks
+      - source_bibliography
+    tables:
+      - name: "Market Data"
+        columns: ["Metric", "2023", "2024", "2025", "Source"]
+      - name: "Competitor Comparison"
+        columns: ["Company", "Market Share", "Key Product", "Strength", "Weakness"]
+      - name: "Trend Analysis"
+        columns: ["Trend", "Impact", "Timeline", "Confidence"]
+
+  literature_review:
+    name: "Literature Review"
+    description: "Academic-focused research synthesis"
+    default_format: "narrative"
+    default_length: "comprehensive"
+    sections:
+      - executive_summary
+      - research_landscape
+      - key_themes
+      - methodology_overview
+      - findings_by_theme
+      - debates_controversies
+      - research_gaps
+      - future_directions
+      - source_bibliography
+    tables:
+      - name: "Key Papers"
+        columns: ["Authors", "Year", "Title", "Key Finding", "Citations"]
+      - name: "Research Methods"
+        columns: ["Study", "Method", "Sample Size", "Findings"]
+
+  quick_scan:
+    name: "Quick Scan"
+    description: "Fast turnaround executive brief"
+    default_format: "structured_brief"
+    default_length: "executive"
+    sections:
+      - key_findings
+      - top_statistics
+      - source_summary
+    tables:
+      - name: "Quick Stats"
+        columns: ["Metric", "Value", "Source"]
+
+  data_extraction:
+    name: "Data Extraction"
+    description: "Structured JSON for pipeline integration"
+    default_format: "json"
+    default_length: "custom"
+    sections:
+      - findings
+      - statistics
+      - sources
+      - metadata
+
+  custom:
+    name: "Custom"
+    description: "Configure all options manually"
+    default_format: null
+    default_length: null
+    sections: []
+
+# =============================================================================
+# FORMAT OPTIONS (Layer 2)
+# =============================================================================
+format_options:
+  narrative:
+    name: "Narrative Report"
+    description: "Flowing prose with structured sections"
+    style: "academic"
+
+  structured_brief:
+    name: "Structured Brief"
+    description: "Bullets, tables, concise text"
+    style: "business"
+
+  data_heavy:
+    name: "Data-Heavy"
+    description: "Tables, charts, minimal prose"
+    style: "analytical"
+
+  json:
+    name: "JSON/Structured"
+    description: "Machine-readable structured output"
+    style: "technical"
+
+# =============================================================================
+# LENGTH OPTIONS (Layer 3)
+# =============================================================================
+length_options:
+  executive:
+    name: "Executive Summary"
+    pages: "2-5 pages"
+    words: "1000-2500"
+    description: "High-level findings only"
+
+  standard:
+    name: "Standard Report"
+    pages: "10-20 pages"
+    words: "5000-10000"
+    description: "Comprehensive coverage"
+
+  comprehensive:
+    name: "Comprehensive"
+    pages: "30-50 pages"
+    words: "15000-25000"
+    description: "Deep analysis with extensive detail"
+
+  custom:
+    name: "Custom"
+    pages: null
+    words: null
+    description: "Specify word count or page target"
+
+# =============================================================================
+# CITATION FORMAT (Hyperlink + Footnote - Option A)
+# =============================================================================
+citation:
+  # Standard format for all outputs
+  format: "hyperlink_footnote"
+
+  # Inline citation format
+  inline_template: "[{title}]({url})^[{n}]"
+  inline_example: "According to [Stanford HAI](https://aiindex.stanford.edu)^[1], adoption increased 34%."
+
+  # Bibliography entry format
+  bibliography_template: |
+    [{n}] {author}. "{title}."
+        {publication}, {date}.
+        {url}
+
+  bibliography_example: |
+    [1] Smith, J. et al. "AI Governance Framework Analysis."
+        Nature Machine Intelligence, January 2024.
+        https://doi.org/10.1038/s42256-024-00123-4
+
+  # Requirements
+  requirements:
+    - "Every factual claim must have inline citation"
+    - "All citations must include working URL"
+    - "Bibliography must be organized by source type"
+    - "Footnote numbers link to bibliography entries"
+
+# =============================================================================
+# RESEARCH AGENTS
+# =============================================================================
+research_agents:
+  RA-01:
+    name: "Academic Research"
+    focus: "Scholarly literature, peer-reviewed studies"
+    file: "ra01_academic.md"
+
+  RA-02:
+    name: "Legal/Regulatory"
+    focus: "Laws, regulations, court cases, compliance"
+    file: "ra02_legal.md"
+
+  RA-03:
+    name: "Technical/Engineering"
+    focus: "Technical specs, implementations, standards"
+    file: "ra03_technical.md"
+
+  RA-04:
+    name: "Market/Industry"
+    focus: "Market trends, business applications, competition"
+    file: "ra04_market.md"
+
+  RA-05:
+    name: "Policy/Government"
+    focus: "Government policy, think tanks, international"
+    file: "ra05_policy.md"
+
+  RA-06:
+    name: "Media/Public Opinion"
+    focus: "News coverage, polling, public discourse"
+    file: "ra06_media.md"
+
+writer_agent:
+  WA-01:
+    name: "Research Writer"
+    focus: "Synthesis, formatting, source validation"
+    file: "wa01_writer.md"
+
+# =============================================================================
+# SOURCE VALIDATION
+# =============================================================================
+source_validation:
+  # Default validation mode
+  default_mode: "spot_check"
+
+  modes:
+    spot_check:
+      name: "Spot Check"
+      description: "Validate 20% of URLs randomly"
+      percentage: 20
+
+    full_validation:
+      name: "Full Validation"
+      description: "Validate all URLs before final output"
+      percentage: 100
+
+  # Validation thresholds
+  thresholds:
+    # Alert user if broken URL rate exceeds this
+    broken_alert_threshold: 0.10
+    # Fail validation if broken rate exceeds this
+    broken_fail_threshold: 0.25
+
+  # URL status categories
+  status_categories:
+    - "accessible"
+    - "redirect"
+    - "paywall"
+    - "broken"
+    - "timeout"
+
+# =============================================================================
+# CONTEXT DOCUMENTS
+# =============================================================================
+context_documents:
+  # Supported file types
+  supported_types:
+    - ".pdf"
+    - ".md"
+    - ".txt"
+    - ".docx"
+    - ".csv"
+
+  # URL validation for context
+  validate_urls: true
+  summarize_accessible: true
+
+  # Maximum file size (MB)
+  max_file_size_mb: 50
+
+  # Maximum total context size (MB)
+  max_total_context_mb: 100
+
+# =============================================================================
+# FOLDER STRUCTURE
+# =============================================================================
+output_structure:
+  base_path: "projects/research/outputs"
+  folder_pattern: "{timestamp}_{topic_slug}"
+
+  # Work folder (drafts, agent outputs, prompts)
+  work_folder:
+    name: "work"
+    contents:
+      - "phase0_research_spec.json"
+      - "phase1_format_config.json"
+      - "ra01_academic.md"
+      - "ra02_legal.md"
+      - "ra03_technical.md"
+      - "ra04_market.md"
+      - "ra05_policy.md"
+      - "ra06_media.md"
+      - "gemini_prompts/"
+      - "gemini_responses/"
+      - "gap_analysis.json"
+      - "writer_draft_v1.md"
+      - "validation_report.json"
+
+  # Final folder (clean deliverables)
+  final_folder:
+    name: "final"
+    contents:
+      - "RESEARCH_MASTER.md"
+      - "BIBLIOGRAPHY.md"  # Optional separate file
+
+  # Log file (session persistence)
+  log_file: "RESEARCH_LOG.md"
+
+  # Metadata file
+  metadata_file: "metadata.json"
+
+# =============================================================================
+# RESEARCH LOOP CONFIGURATION
+# =============================================================================
+research_loop:
+  max_iterations: 2
+  gap_threshold: 0.75
+  parallel_angles: true
+  max_concurrent_gemini: 3
+  require_approval: true
+  show_prompt_preview: true
+
+# =============================================================================
+# GEMINI SETTINGS
+# =============================================================================
+gemini:
+  model: "deep-research-pro-preview-12-2025"
+  temperature: 0.2
+  max_sources_per_angle: 100
+  timeout_minutes: 20
+  poll_interval: 10
+  max_total_time: 60
+
+  # Citation requirements for Gemini prompts
+  citation_requirements: |
+    CITATION REQUIREMENTS (MANDATORY):
+    - Every finding must include an inline citation with URL
+    - Use format: [Source Name](URL)^[N] where N links to bibliography
+    - Include full bibliography at end with complete URLs
+    - For each source, include: author/org, title, date, URL
+    - Rate source confidence: HIGH (authoritative) / MEDIUM / LOW
+    - Note if source is: peer-reviewed, official, industry report, news
+
+# =============================================================================
+# GEMINI PRO OPTIMIZATION
+# =============================================================================
+gemini_pro_optimization:
+  mode: "auto"
+  auto_triggers:
+    technical_domains:
+      - "biotech"
+      - "quantum"
+      - "semiconductor"
+      - "cryptography"
+      - "genomics"
+      - "legal"
+      - "medical"
+    international_research: true
+    ambiguity_threshold: 0.7
+
+# =============================================================================
+# SCOPE DEFAULTS
+# =============================================================================
+scope_defaults:
+  date_range:
+    start: "2020-01-01"
+    end: "2025-12-31"
+  geographic_focus: "global"
+  source_priorities:
+    academic: true
+    government: true
+    legal: true
+    industry: true
+    news: true
+    social_media: false
+  unknown_handling: "If specific data is not available, explicitly state 'Data not available for [item]' rather than estimating or inferring."

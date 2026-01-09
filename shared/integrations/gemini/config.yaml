@@ -1,0 +1,33 @@
+# Gemini Integration Configuration
+
+# Enable/disable this integration
+enabled: false  # Set to true after configuring API key
+
+# API Configuration
+api_key_env: GEMINI_API_KEY  # Environment variable name
+
+# Model selection
+model: gemini-2.0-flash-exp
+# Alternatives:
+# - gemini-1.5-pro (more capable, higher cost)
+# - gemini-1.5-flash (faster, lower cost)
+
+# Deep Research settings
+deep_research:
+  min_sources: 100
+  grounding_enabled: true
+  output_format: markdown
+
+# Cloudflare Worker (if using worker proxy)
+# worker_url: https://your-worker.workers.dev
+
+# Rate limiting
+rate_limit:
+  requests_per_minute: 60
+  concurrent_requests: 5
+
+# Output settings
+output:
+  include_sources: true
+  source_format: "[VERIFIED]"
+  max_content_length: 50000

@@ -1,0 +1,204 @@
+{
+  "version": "3.0",
+  "total_voting_agents": 19,
+  "analysts": [
+    {
+      "agent_id": "PA-01",
+      "name": "Economic Populist",
+      "role": "Policy Analyst",
+      "perspective": "Working-class economic impact, anti-monopoly",
+      "voting_weight": 1.0,
+      "file": "shared/agents/analysts/pa01_economic_populist.md"
+    },
+    {
+      "agent_id": "PA-02",
+      "name": "Progressive",
+      "role": "Policy Analyst",
+      "perspective": "Progressive reform, social equity (liberal to center-left)",
+      "voting_weight": 1.0,
+      "file": "shared/agents/analysts/pa02_progressive.md"
+    },
+    {
+      "agent_id": "PA-04",
+      "name": "Centrist",
+      "role": "Policy Analyst",
+      "perspective": "Bipartisan solutions, stability",
+      "voting_weight": 1.0,
+      "file": "shared/agents/analysts/pa04_centrist.md"
+    },
+    {
+      "agent_id": "PA-06",
+      "name": "Conservative/Market",
+      "role": "Policy Analyst",
+      "perspective": "Market principles, limited government (center-right to free market)",
+      "voting_weight": 1.0,
+      "file": "shared/agents/analysts/pa06_conservative_market.md"
+    },
+    {
+      "agent_id": "PA-07",
+      "name": "MAGA Conservative",
+      "role": "Policy Analyst",
+      "perspective": "America First, traditional values, sovereignty",
+      "voting_weight": 1.0,
+      "file": "shared/agents/analysts/pa07_maga.md"
+    },
+    {
+      "agent_id": "PA-09",
+      "name": "AI Safety",
+      "role": "Policy Analyst",
+      "perspective": "Risk mitigation, alignment, safeguards",
+      "voting_weight": 1.0,
+      "file": "shared/agents/analysts/pa09_ai_safety.md"
+    },
+    {
+      "agent_id": "PA-10",
+      "name": "AI Accelerationist",
+      "role": "Policy Analyst",
+      "perspective": "Technology advancement, rapid development",
+      "voting_weight": 1.0,
+      "file": "shared/agents/analysts/pa10_ai_accelerationist.md"
+    },
+    {
+      "agent_id": "PA-11",
+      "name": "Capital & Industry",
+      "role": "Policy Analyst",
+      "perspective": "Investment climate, industry growth",
+      "voting_weight": 1.0,
+      "file": "shared/agents/analysts/pa11_capital_industry.md"
+    },
+    {
+      "agent_id": "PA-12",
+      "name": "Rights & Consumer Protection",
+      "role": "Policy Analyst",
+      "perspective": "Civil rights, consumer protections",
+      "voting_weight": 1.0,
+      "file": "shared/agents/analysts/pa12_rights_consumer_protection.md"
+    },
+    {
+      "agent_id": "PA-13",
+      "name": "Organized Labor",
+      "role": "Policy Analyst",
+      "perspective": "Worker protections, job security",
+      "voting_weight": 1.0,
+      "file": "shared/agents/analysts/pa13_organized_labor.md"
+    },
+    {
+      "agent_id": "PA-15",
+      "name": "Environmental/Climate",
+      "role": "Policy Analyst",
+      "perspective": "Sustainability, climate action",
+      "voting_weight": 1.0,
+      "file": "shared/agents/analysts/pa15_environmental_climate.md"
+    },
+    {
+      "agent_id": "PA-16",
+      "name": "Small Business",
+      "role": "Policy Analyst",
+      "perspective": "Main Street, entrepreneurship, SMB impact",
+      "voting_weight": 1.0,
+      "file": "shared/agents/analysts/pa16_small_business.md"
+    }
+  ],
+  "specialists": [
+    {
+      "agent_id": "SA-01",
+      "name": "Legislative Counsel",
+      "role": "Specialist",
+      "expertise": "Bill drafting, amendment language, constitutional analysis",
+      "voting_weight": 1.0,
+      "file": "shared/agents/specialists/sa01_legislative_counsel.md"
+    },
+    {
+      "agent_id": "SA-02",
+      "name": "Legal Counsel",
+      "role": "Specialist",
+      "expertise": "Constitutional and regulatory law",
+      "voting_weight": 1.0,
+      "file": "shared/agents/specialists/sa02_legal_counsel.md"
+    },
+    {
+      "agent_id": "SA-03",
+      "name": "SCOTUS Analyst",
+      "role": "Specialist",
+      "expertise": "Supreme Court jurisprudence, legal challenges",
+      "voting_weight": 1.0,
+      "file": "shared/agents/specialists/sa03_scotus_analyst.md"
+    },
+    {
+      "agent_id": "SA-04",
+      "name": "Verification & Sources",
+      "role": "Specialist",
+      "expertise": "Fact checking, verification, citations",
+      "voting_weight": 1.0,
+      "file": "shared/agents/specialists/sa04_verification_sources.md"
+    },
+    {
+      "agent_id": "SA-06",
+      "name": "Polling Expert",
+      "role": "Specialist",
+      "expertise": "Public opinion analysis",
+      "voting_weight": 1.0,
+      "file": "shared/agents/specialists/sa06_polling_expert.md"
+    },
+    {
+      "agent_id": "SA-07",
+      "name": "Budget Expert",
+      "role": "Specialist",
+      "expertise": "Fiscal analysis, CBO-style scoring",
+      "voting_weight": 1.0,
+      "file": "shared/agents/specialists/sa07_budget_expert.md"
+    },
+    {
+      "agent_id": "SA-08",
+      "name": "Implementation Expert",
+      "role": "Specialist",
+      "expertise": "Operational feasibility, agency capacity",
+      "voting_weight": 1.0,
+      "file": "shared/agents/specialists/sa08_implementation_expert.md"
+    }
+  ],
+  "support_roles": [
+    {
+      "agent_id": "CD-01",
+      "name": "Council Director",
+      "role": "Support",
+      "function": "Facilitation and process management",
+      "voting": false
+    },
+    {
+      "agent_id": "WE-01",
+      "name": "Writer/Editor",
+      "role": "Support",
+      "function": "Document preparation and consistency",
+      "voting": false
+    },
+    {
+      "agent_id": "RL-01",
+      "name": "Research Librarian",
+      "role": "Support",
+      "function": "Source gathering and verification",
+      "voting": false
+    },
+    {
+      "agent_id": "CL-01",
+      "name": "Communications Lead",
+      "role": "Support",
+      "function": "Public-facing materials",
+      "voting": false
+    },
+    {
+      "agent_id": "PS-01",
+      "name": "Political Strategist",
+      "role": "Support",
+      "function": "Political landscape analysis",
+      "voting": false
+    },
+    {
+      "agent_id": "DS-01",
+      "name": "Designer",
+      "role": "Support",
+      "function": "Visual elements and formatting",
+      "voting": false
+    }
+  ]
+}

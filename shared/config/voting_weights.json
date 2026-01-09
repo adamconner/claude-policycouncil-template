@@ -1,0 +1,126 @@
+{
+  "version": "3.0",
+  "voting_schemes": {
+    "effectiveness": {
+      "name": "Effectiveness Vote",
+      "description": "Identify policies most likely to achieve core goals, regardless of ideology",
+      "instruction": "Vote based on what you believe will be MOST EFFECTIVE at achieving the policy goals, NOT based on ideological preference",
+      "weights": {
+        "PA-01": 1.0, "PA-02": 1.0, "PA-04": 1.0, "PA-06": 1.0, "PA-07": 1.0,
+        "PA-09": 1.0, "PA-10": 1.0, "PA-11": 1.0, "PA-12": 1.0, "PA-13": 1.0,
+        "PA-15": 1.0, "PA-16": 1.0,
+        "SA-01": 1.0, "SA-02": 1.0, "SA-03": 1.0, "SA-04": 1.0,
+        "SA-06": 1.0, "SA-07": 1.0, "SA-08": 1.0
+      },
+      "total_possible": 19.0
+    },
+    "compromise": {
+      "name": "Compromise Vote",
+      "description": "Identify policies that could achieve broad cross-ideological support",
+      "instruction": "Vote for policies you could genuinely support or accept as a reasonable compromise, even if not your first choice",
+      "weights": {
+        "PA-01": 1.0, "PA-02": 1.0, "PA-04": 1.0, "PA-06": 1.0, "PA-07": 1.0,
+        "PA-09": 1.0, "PA-10": 1.0, "PA-11": 1.0, "PA-12": 1.0, "PA-13": 1.0,
+        "PA-15": 1.0, "PA-16": 1.0,
+        "SA-01": 1.0, "SA-02": 1.0, "SA-03": 1.0, "SA-04": 1.0,
+        "SA-06": 1.0, "SA-07": 1.0, "SA-08": 1.0
+      },
+      "total_possible": 19.0
+    },
+    "progressive": {
+      "name": "Progressive/Liberal Sort",
+      "description": "Identify top policies aligning with progressive/liberal priorities",
+      "instruction": "Rank policies by alignment with progressive values and coalition priorities",
+      "weights": {
+        "PA-01": 3.0,
+        "PA-02": 3.0,
+        "PA-04": 1.0,
+        "PA-06": 0.5,
+        "PA-07": 0.5,
+        "PA-09": 1.5,
+        "PA-10": 0.5,
+        "PA-11": 0.5,
+        "PA-12": 2.5,
+        "PA-13": 2.0,
+        "PA-15": 2.0,
+        "PA-16": 1.0,
+        "SA-01": 1.0, "SA-02": 1.0, "SA-03": 1.0, "SA-04": 1.0,
+        "SA-06": 1.0, "SA-07": 1.0, "SA-08": 1.0
+      },
+      "total_possible": 25.5
+    },
+    "conservative": {
+      "name": "Conservative Sort",
+      "description": "Identify top policies aligning with conservative priorities",
+      "instruction": "Rank policies by alignment with conservative values and coalition priorities",
+      "weights": {
+        "PA-01": 1.5,
+        "PA-02": 0.5,
+        "PA-04": 1.0,
+        "PA-06": 3.0,
+        "PA-07": 3.0,
+        "PA-09": 0.5,
+        "PA-10": 1.5,
+        "PA-11": 2.5,
+        "PA-12": 0.5,
+        "PA-13": 0.5,
+        "PA-15": 0.5,
+        "PA-16": 2.0,
+        "SA-01": 1.0, "SA-02": 1.0, "SA-03": 1.0, "SA-04": 1.0,
+        "SA-06": 1.0, "SA-07": 1.0, "SA-08": 1.0
+      },
+      "total_possible": 24.5
+    },
+    "innovation": {
+      "name": "Pro-Innovation Sort",
+      "description": "Identify top policies promoting innovation and growth",
+      "instruction": "Rank policies by potential to advance technology and economic growth",
+      "weights": {
+        "PA-01": 0.5,
+        "PA-02": 0.5,
+        "PA-04": 1.0,
+        "PA-06": 1.5,
+        "PA-07": 0.5,
+        "PA-09": 0.5,
+        "PA-10": 3.0,
+        "PA-11": 3.0,
+        "PA-12": 0.5,
+        "PA-13": 0.5,
+        "PA-15": 0.5,
+        "PA-16": 1.5,
+        "SA-01": 1.0, "SA-02": 1.0, "SA-03": 1.0, "SA-04": 1.0,
+        "SA-06": 1.0, "SA-07": 1.0, "SA-08": 1.0
+      },
+      "total_possible": 21.0
+    },
+    "safety": {
+      "name": "Pro-Safety Sort",
+      "description": "Identify top policies prioritizing safety and risk mitigation",
+      "instruction": "Rank policies by potential to mitigate risks and protect stakeholders",
+      "weights": {
+        "PA-01": 0.5,
+        "PA-02": 1.5,
+        "PA-04": 1.0,
+        "PA-06": 0.5,
+        "PA-07": 0.5,
+        "PA-09": 3.0,
+        "PA-10": 0.5,
+        "PA-11": 0.5,
+        "PA-12": 2.5,
+        "PA-13": 2.0,
+        "PA-15": 2.0,
+        "PA-16": 0.5,
+        "SA-01": 1.0, "SA-02": 1.0, "SA-03": 1.0, "SA-04": 1.0,
+        "SA-06": 1.0, "SA-07": 1.0, "SA-08": 1.0
+      },
+      "total_possible": 22.5
+    }
+  },
+  "voting_rules": {
+    "quorum": 16,
+    "total_voting_agents": 19,
+    "consensus_threshold": 0.80,
+    "strong_majority_threshold": 0.66,
+    "simple_majority_threshold": 0.51
+  }
+}

@@ -1,0 +1,34 @@
+# Policy Council Integration Configuration
+# This file controls which external APIs are available and their settings
+
+default_model: claude
+
+available_integrations:
+  - claude    # Always available - uses Claude Code's native Task tool
+  - gemini    # Optional - requires GEMINI_API_KEY
+  # - openai  # Future - not yet implemented
+
+# Default settings for research commands
+research:
+  default_integration: claude
+  parallel_agents: 6
+
+# Deep research settings (100+ sources)
+deep_research:
+  # Gemini is recommended for deep research due to grounding capabilities
+  preferred_integration: gemini
+  fallback_integration: claude
+  min_sources: 100
+
+# Integration-specific settings
+integrations:
+  claude:
+    enabled: true
+    # Claude uses native Task tool - no additional config needed
+
+  gemini:
+    enabled: false  # Set to true after configuring API key
+    # See gemini/config.yaml for detailed settings
+
+  openai:
+    enabled: false  # Future placeholder

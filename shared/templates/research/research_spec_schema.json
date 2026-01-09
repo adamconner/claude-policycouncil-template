@@ -1,0 +1,236 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Deep Research Specification",
+  "description": "Schema for Claude-generated research specifications sent to Gemini Deep Research",
+  "type": "object",
+  "required": ["topic", "angles", "format_config", "scope", "metadata"],
+  "properties": {
+    "topic": {
+      "type": "string",
+      "description": "The main research topic"
+    },
+    "topic_slug": {
+      "type": "string",
+      "description": "URL-safe version of topic for file naming",
+      "pattern": "^[a-z0-9_-]+$"
+    },
+    "angles": {
+      "type": "array",
+      "description": "Research angles to investigate",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "focus", "questions", "source_priorities"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": ["RA-01", "RA-02", "RA-03", "RA-04", "RA-05", "RA-06"],
+            "description": "Research agent ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "Agent name (e.g., 'Academic Research')"
+          },
+          "focus": {
+            "type": "string",
+            "description": "Agent's focus area"
+          },
+          "questions": {
+            "type": "array",
+            "description": "Specific research questions for this angle",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 3,
+            "maxItems": 10
+          },
+          "source_priorities": {
+            "type": "array",
+            "description": "Prioritized source types for this angle",
+            "items": {
+              "type": "string"
+            }
+          },
+          "key_entities": {
+            "type": "array",
+            "description": "Specific entities/organizations to investigate",
+            "items": {
+              "type": "string"
+            }
+          },
+          "required_metrics": {
+            "type": "array",
+            "description": "Specific metrics/data points needed",
+            "items": {
+              "type": "string"
+            }
+          },
+          "custom_instructions": {
+            "type": "string",
+            "description": "Additional angle-specific instructions"
+          }
+        }
+      }
+    },
+    "format_config": {
+      "type": "object",
+      "description": "Output format configuration",
+      "required": ["preset", "format", "sections", "citation_format"],
+      "properties": {
+        "preset": {
+          "type": "string",
+          "enum": ["policy_brief", "market_analysis", "literature_review", "quick_scan", "data_extraction", "custom"],
+          "description": "Selected preset or 'custom'"
+        },
+        "format": {
+          "type": "string",
+          "enum": ["markdown", "markdown_with_tables", "brief", "json"],
+          "description": "Primary output format"
+        },
+        "sections": {
+          "type": "array",
+          "description": "Sections to include in output",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "word_target": {
+                "type": "integer"
+              },
+              "required": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "tables": {
+          "type": "array",
+          "description": "Tables to include",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "columns": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "citation_format": {
+          "type": "string",
+          "enum": ["academic", "academic_full", "journalistic", "minimal", "url_only"],
+          "description": "Citation format to use"
+        },
+        "custom_sections": {
+          "type": "array",
+          "description": "User-defined custom sections",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "description": "Research scope constraints",
+      "properties": {
+        "date_range": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "string",
+              "format": "date"
+            },
+            "end": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        "geographic_focus": {
+          "type": "string",
+          "description": "Geographic focus (e.g., 'US', 'EU', 'Global')"
+        },
+        "source_types": {
+          "type": "object",
+          "description": "Source type toggles",
+          "properties": {
+            "academic": { "type": "boolean" },
+            "government": { "type": "boolean" },
+            "industry": { "type": "boolean" },
+            "news": { "type": "boolean" },
+            "social_media": { "type": "boolean" }
+          }
+        },
+        "unknown_handling": {
+          "type": "string",
+          "description": "Instructions for handling missing data"
+        }
+      }
+    },
+    "context_documents": {
+      "type": "array",
+      "description": "Paths to context documents to upload",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string" },
+          "type": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "loop_config": {
+      "type": "object",
+      "description": "Research loop configuration",
+      "properties": {
+        "use_gemini_pro_optimization": {
+          "type": "boolean",
+          "description": "Whether to use Gemini Pro for query optimization"
+        },
+        "max_iterations": {
+          "type": "integer",
+          "description": "Maximum gap-filling iterations"
+        },
+        "gap_threshold": {
+          "type": "number",
+          "description": "Completeness threshold for follow-up"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Research metadata",
+      "required": ["created_at", "created_by"],
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string",
+          "description": "User or system that created spec"
+        },
+        "project": {
+          "type": "string",
+          "description": "Associated project name"
+        },
+        "estimated_time_minutes": {
+          "type": "integer"
+        },
+        "estimated_cost": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

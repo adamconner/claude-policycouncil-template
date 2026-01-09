@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "PA-XX",
+  "agent_perspective": "Brief description of agent perspective",
+  "project_id": "project-name",
+  "last_updated": "2025-01-01T00:00:00Z",
+  "phases": {
+    "phase1": {
+      "status": "not_started",
+      "completed_date": null,
+      "ideas_generated": [],
+      "research_conducted": [],
+      "ideological_themes": []
+    },
+    "phase2": {
+      "status": "not_started",
+      "completed_date": null,
+      "votes_cast": {
+        "effectiveness": [],
+        "compromise": [],
+        "progressive_sort": [],
+        "conservative_sort": []
+      },
+      "arguments_made": [],
+      "amendments_proposed": [],
+      "key_alliances": [],
+      "key_conflicts": []
+    },
+    "phase3": {
+      "status": "not_started",
+      "completed_date": null,
+      "policies_refined": [],
+      "detailed_analyses_provided": []
+    },
+    "phase4": {
+      "status": "not_started",
+      "completed_date": null,
+      "implementation_reviews": [],
+      "cost_benefit_analyses": []
+    },
+    "phase5": {
+      "status": "not_started",
+      "completed_date": null,
+      "rollout_recommendations": []
+    }
+  },
+  "cross_phase_context": {
+    "core_positions": [],
+    "evolution_of_thinking": [],
+    "dissents_recorded": [],
+    "compromises_made": [],
+    "key_insights": []
+  },
+  "metadata": {
+    "total_ideas_generated": 0,
+    "total_votes_cast": 0,
+    "total_arguments_made": 0,
+    "total_amendments_proposed": 0,
+    "participation_phases": [],
+    "ideological_consistency_score": null,
+    "collaboration_partners": [],
+    "frequent_opponents": [],
+    "notes": ""
+  }
+}
