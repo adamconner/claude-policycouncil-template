@@ -21,7 +21,7 @@ The Policy Council runs entirely through Claude Code using the Task tool to spaw
 | Command | Description |
 |---------|-------------|
 | `/council-test [topic]` | Quick 3-agent test run to verify parallel execution |
-| `/council-phase1 [topic]` | Full Phase 1 with all 19 voting agents (2 batches) |
+| `/council-phase1 [topic]` | Full Phase 1 with all 21 voting agents (2 batches) |
 | `/council-vote [file]` | Phase 2 voting on policies from Phase 1 output |
 | `/run-council [topic]` | Full workflow (Phase 1 + Phase 2) |
 | `/status` | Quick status of all projects |
@@ -36,13 +36,14 @@ The Policy Council runs entirely through Claude Code using the Task tool to spaw
 3. **Structured Output**: Results aggregated into project output folders
 4. **No External APIs**: Uses Claude Code's native Task tool only
 
-### Agent Roster (19 Voting Members)
+### Agent Roster (21 Voting Members)
 
-**Policy Analysts (12):**
+**Policy Analysts (14):**
 - PA-01 Economic Populist | PA-02 Progressive | PA-04 Centrist
 - PA-06 Conservative/Market | PA-07 Nationalist Conservative
 - PA-09 Safety/Risk | PA-10 Innovation | PA-11 Capital & Industry
 - PA-12 Rights & Consumer | PA-13 Labor | PA-15 Environmental | PA-16 Small Business
+- PA-17 National Security | PA-18 International Relations
 
 **Specialists (7):**
 - SA-01 Legislative | SA-02 Legal | SA-03 SCOTUS
@@ -86,7 +87,7 @@ claude-policycouncil-template/
 │
 ├── shared/                      # Resources shared across all projects
 │   ├── agents/                  # Agent definitions
-│   │   ├── analysts/            # PA-01 through PA-16
+│   │   ├── analysts/            # PA-01 through PA-18
 │   │   ├── specialists/         # SA-01 through SA-08
 │   │   └── research/            # RA-01 through RA-06
 │   ├── config/                  # Shared config (voting rules, weights)
@@ -218,4 +219,4 @@ This framework supports optional API integrations for enhanced capabilities. See
 
 ---
 
-*Policy Council Framework v3.0*
+*Policy Council Framework v3.1*

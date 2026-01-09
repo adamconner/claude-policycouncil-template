@@ -1,175 +1,149 @@
 # Claude Policy Council Framework
 
-A multi-agent policy deliberation system that runs entirely within Claude Code. Spawn 19 specialized agent personas to generate, debate, and refine policy proposals from diverse ideological perspectives.
+Give the Policy Council a topic, and 21 AI agents — each with a distinct ideological perspective — will debate it from every angle. They generate ideas in parallel, vote on proposals, then develop the winners into comprehensive policy papers complete with draft legislation, economic analysis, and rollout materials like press releases and social media toolkits.
 
-## Features
+You stay in control throughout: reviewing ideas before voting, approving what moves forward, and guiding refinement at each phase. The result is well-rounded policy development that stress-tests ideas across the political spectrum — from economic populists to fiscal conservatives, from labor advocates to national security experts — all in a few hours instead of months.
 
-- **19 Voting Agents**: 12 policy analysts + 7 specialists covering the full ideological spectrum
-- **5-Phase Workflow**: Ideation → Voting → Refinement → Development → Rollout
-- **Parallel Execution**: Agents run concurrently using Claude Code's Task tool
-- **No External APIs**: Works out of the box with just Claude Code
-- **Optional Integrations**: Add Gemini, OpenAI, or other APIs for enhanced research
+---
 
 ## Quick Start
 
-### 1. Clone the Repository
+### Requirements
+
+- **Claude Pro subscription** ($20/month) from [claude.ai](https://claude.ai)
+- **Claude Code** installed ([download](https://claude.ai/download) or `npm install -g @anthropic-ai/claude-code`)
+
+### Setup
+
+1. Clone this repository
+2. Open Claude Code in the folder
+3. Run `/council-test Should cities ban cars from downtown areas?` to verify setup
+
+### Your First Council Session
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/claude-policycouncil-template.git
-cd claude-policycouncil-template
-```
+# Create a project
+cp -r projects/_example projects/my-policy
 
-### 2. Open in Claude Code
+# Edit goals
+# projects/my-policy/config/goals.md
 
-```bash
-claude
-```
+# Run Phase 1 (ideation)
+/council-phase1 Your policy topic here
 
-### 3. Create Your First Project
-
-```bash
-# Copy the example project
-cp -r projects/_example projects/my-first-project
-
-# Edit the goals file
-# projects/my-first-project/config/goals.md
-```
-
-### 4. Run Phase 1 Ideation
-
-```
-/council-phase1 [Your policy topic]
-```
-
-Example: `/council-phase1 Universal basic income implementation strategies`
-
-## Project Structure
-
-```
-claude-policycouncil-template/
-├── .claude/commands/           # Slash commands for workflows
-├── shared/
-│   ├── agents/                 # 19 agent definitions
-│   │   ├── analysts/           # PA-01 through PA-16
-│   │   ├── specialists/        # SA-01 through SA-08
-│   │   └── research/           # RA-01 through RA-06
-│   ├── config/                 # Voting rules and weights
-│   ├── integrations/           # Optional API integrations
-│   ├── templates/              # Document templates
-│   ├── workflows/              # Phase workflow guides
-│   └── tools/                  # Vote tally utility
-├── projects/
-│   └── _example/               # Template project structure
-├── MASTER_DASHBOARD.md         # Navigation hub
-└── CLAUDE.md                   # Claude Code instructions
-```
-
-## Agent Roster
-
-### Policy Analysts (12 voting members)
-| ID | Name | Perspective |
-|----|------|-------------|
-| PA-01 | Economic Populist | Worker-focused economics |
-| PA-02 | Progressive | Social justice, equity |
-| PA-04 | Centrist | Pragmatic bipartisanship |
-| PA-06 | Conservative/Market | Free market principles |
-| PA-07 | Nationalist Conservative | National interest focus |
-| PA-09 | Safety/Risk | Risk mitigation |
-| PA-10 | Innovation | Technology advancement |
-| PA-11 | Capital & Industry | Business perspective |
-| PA-12 | Rights & Consumer | Consumer protection |
-| PA-13 | Labor | Worker rights |
-| PA-15 | Environmental | Sustainability |
-| PA-16 | Small Business | SMB advocacy |
-
-### Specialists (7 voting members)
-| ID | Name | Expertise |
-|----|------|-----------|
-| SA-01 | Legislative Counsel | Bill drafting |
-| SA-02 | Legal Analyst | Constitutional law |
-| SA-03 | SCOTUS Watcher | Court precedent |
-| SA-04 | Verification | Fact-checking |
-| SA-06 | Polling Analyst | Public opinion |
-| SA-07 | Budget Analyst | Fiscal impact |
-| SA-08 | Implementation | Practical execution |
-
-## Workflow Phases
-
-### Phase 1: Ideation
-Generate 5-10 policy proposals from each agent's unique perspective.
-
-```
-/council-phase1 [topic]
-```
-
-### Phase 2: Voting
-Agents vote on the generated proposals with reasoning.
-
-```
+# Review ideas, then run Phase 2 (voting)
 /council-vote latest
 ```
 
-### Phase 3: Refinement
-Develop top-ranked proposals into initial policy papers.
+---
 
-### Phase 4: Full Development
-Complete 20+ section policy papers with legal analysis.
+## The 21 Agents
 
-### Phase 5: Rollout
-Create communication materials and implementation guides.
+### Policy Analysts (14)
+| Agent | Perspective |
+|-------|-------------|
+| Economic Populist | Working-class economic impact, anti-monopoly |
+| Progressive | Social equity, civil rights |
+| Centrist | Bipartisan solutions, stability |
+| Conservative/Market | Market principles, limited government |
+| MAGA Conservative | America First, traditional values |
+| AI Safety | Risk mitigation, alignment |
+| AI Accelerationist | Technology advancement |
+| Capital & Industry | Investment climate, business growth |
+| Rights & Consumer | Civil rights, consumer protection |
+| Organized Labor | Worker protections, job security |
+| Environmental/Climate | Sustainability, climate action |
+| Small Business | Main Street, entrepreneurship |
+| National Security | Defense, military, homeland security |
+| International Relations | Diplomacy, global cooperation |
 
-## Optional Integrations
+### Specialists (7)
+| Agent | Expertise |
+|-------|-----------|
+| Legislative Counsel | Bill drafting, constitutional analysis |
+| Legal Counsel | Regulatory law, legal challenges |
+| SCOTUS Analyst | Supreme Court jurisprudence |
+| Verification & Sources | Fact-checking, citations |
+| Polling Expert | Public opinion analysis |
+| Budget Expert | Fiscal analysis, CBO-style scoring |
+| Implementation Expert | Operational feasibility |
 
-The framework supports optional API integrations for enhanced capabilities:
+---
 
-```
-shared/integrations/
-├── claude/      # Default (always available)
-├── gemini/      # Optional: Deep research with 100+ sources
-└── openai/      # Future: Additional capabilities
-```
+## The 5 Phases
 
-See `shared/integrations/README.md` for setup instructions.
+The Policy Council develops proposals through a five-phase workflow, with human checkpoints between each phase.
+
+- **Phase 1: Idea Generation** — All 21 agents propose policies from their unique perspectives, generating 60-100+ ideas in parallel, each required to include transformational "Big Ideas."
+- **Phase 2: Voting** — Agents vote on top proposals with reasoning, revealing where consensus exists and where ideological fault lines emerge.
+- **Phase 3: Refinement** — Specialists produce research briefs, economic analysis, implementation plans, and political assessments for the winning policy.
+- **Phase 4: Full Development** — The policy expands into a comprehensive 24-section paper with draft federal and state legislation.
+- **Phase 5: Rollout** — Communication materials are created: press releases, op-eds, fact sheets, talking points, social media content, and FAQs.
+
+---
+
+## Example Output: Affordable Housing
+
+See a **complete 5-phase example** in [`examples/affordable-housing/`](examples/affordable-housing/).
+
+| Phase | Output |
+|-------|--------|
+| Phase 1 | [30 policy proposals](examples/affordable-housing/outputs/phase1/ideas_master.md) |
+| Phase 2 | [Voting results](examples/affordable-housing/outputs/phase2/voting_results.md) |
+| Phase 3 | [Policy recommendation](examples/affordable-housing/outputs/phase3/national_zoning_reform_recommendation.md) |
+| Phase 4 | [24-section paper + legislation](examples/affordable-housing/outputs/phase4/national_zoning_reform_full_paper.md) |
+| Phase 5 | [Press release, social media, FAQ](examples/affordable-housing/outputs/phase5/) |
+
+---
 
 ## Available Commands
 
 | Command | Description |
 |---------|-------------|
-| `/council-phase1 [topic]` | Run Phase 1 ideation with all 19 agents |
-| `/council-vote [file]` | Run Phase 2 voting |
-| `/run-council [topic]` | Full Phase 1 + Phase 2 workflow |
-| `/council-test [topic]` | Quick 3-agent test run |
+| `/council-phase1 [topic]` | Full 21-agent ideation |
+| `/council-vote latest` | Vote on Phase 1 proposals |
+| `/run-council [topic]` | Phase 1 + 2 combined |
+| `/council-test [topic]` | Quick 3-agent test |
 | `/research [topic]` | 6-agent parallel research |
-| `/research-quick [topic]` | Quick 3-agent research |
 | `/status` | Project status overview |
 | `/dashboard` | Full project dashboard |
-| `/council-agents` | List all agents |
 
-## Creating a New Project
+---
 
-1. Copy the example project:
-   ```bash
-   cp -r projects/_example projects/your-project-name
-   ```
+## Project Structure
 
-2. Edit `projects/your-project-name/config/goals.md` with your policy objectives
+```
+claude-policycouncil-template/
+├── .claude/commands/        # Slash commands
+├── shared/
+│   ├── agents/              # 21 agent definitions
+│   ├── config/              # Voting rules
+│   ├── integrations/        # Optional Gemini/OpenAI
+│   ├── templates/           # Document templates
+│   └── workflows/           # Phase guides
+├── projects/
+│   └── _example/            # Project template
+├── examples/
+│   └── affordable-housing/  # Complete 5-phase example
+└── CLAUDE.md                # Claude Code instructions
+```
 
-3. Update the project dashboard
+---
 
-4. Run `/council-phase1` to begin ideation
+## Optional Integrations
 
-## Requirements
+The framework supports optional API integrations:
 
-- [Claude Code CLI](https://github.com/anthropics/claude-code)
-- A Claude API key (for Claude Code)
+- **Gemini** — Deep research with 100+ sources
+- **OpenAI** — Additional capabilities (future)
+
+See `shared/integrations/README.md` for setup.
+
+---
 
 ## License
 
-MIT License - See LICENSE file for details.
-
-## Contributing
-
-Contributions welcome! Please submit issues and pull requests.
+MIT License — free to use, modify, and share.
 
 ---
 
